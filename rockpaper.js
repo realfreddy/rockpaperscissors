@@ -26,6 +26,7 @@ function getHumanChoice() {
 function playGame() {
   let humanScore = 0;
   let computerScore = 0;
+  let roundsPlayed = prompt("How many rounds do u wanna play?")
   function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
       console.log("You tied!");
@@ -43,7 +44,7 @@ function playGame() {
       computerScore++;
     }
   }
-  for(let i = 0 ; i < 5;i++){
+  for(let i = 0 ; i < roundsPlayed ;i++){
   let humanSelection = getHumanChoice();
   let computerSelection = getComputerChoice();
   playRound(humanSelection, computerSelection);
