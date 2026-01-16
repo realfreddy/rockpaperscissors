@@ -43,22 +43,12 @@ function playGame() {
       computerScore++;
     }
   }
+  for(let i = 0 ; i < 5;i++){
   let humanSelection = getHumanChoice();
   let computerSelection = getComputerChoice();
   playRound(humanSelection, computerSelection);
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice();
-  playRound(humanSelection, computerSelection);
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice();
-  playRound(humanSelection, computerSelection);
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice();
-  playRound(humanSelection, computerSelection);
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice();
-  playRound(humanSelection, computerSelection);
-  console.log(`You have ${humanScore} points`);
-  console.log(`The computer has ${computerScore} points`);
+}
+console.log(`You have ${humanScore} points`);
+console.log(`The computer has ${computerScore} points`);
 }
 playGame();
