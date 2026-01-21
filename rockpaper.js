@@ -11,6 +11,9 @@ function getComputerChoice() {
   }
 }
 const buttons = document.querySelectorAll("button");
+const humanScoreDisplay = document.querySelector(".humanscore");
+const computerScoreDisplay = document.querySelector(".computerscore");
+const resultMessage = document.querySelector(".result-message");
 
 buttons.forEach((button) => {
   button.addEventListener("click", startRound);
@@ -27,30 +30,34 @@ function startRound(event) {
   let computerSelection = getComputerChoice();
   playRound(humanChoice, computerSelection);
 }
- const humanScoreDisplay = document.querySelector(".humanscore")
- const computerScoreDisplay = document.querySelector(".computerscore")
 
 function playRound(humanChoice, computerChoice) {
   if (humanChoice === computerChoice) {
-    console.log("You tied!");
+    resultMessage.textContent = "Tie!";
   } else if (humanChoice === "rock" && computerChoice === "scissors") {
-    console.log("You won!, rock beats scissors");
+    resultMessage.textContent = "You won! Rock beats scissors";
     humanScore++;
     humanScoreDisplay.textContent = `You: ${humanScore}`;
   } else if (humanChoice === "paper" && computerChoice === "rock") {
-    console.log("You won!, paper beats rock");
+    resultMessage.textContent = "You won! Paper beats rock";
     humanScore++;
     humanScoreDisplay.textContent = `You: ${humanScore}`;
   } else if (humanChoice === "scissors" && computerChoice === "paper") {
-    console.log("You won!, scissors beats paper");
+    resultMessage.textContent = "You won! Scissors beats paper";
     humanScore++;
     humanScoreDisplay.textContent = `You: ${humanScore}`;
   } else {
-    console.log("You lost!");
+    resultMessage.textContent = "You lost!";
     computerScore++;
     computerScoreDisplay.textContent = `Computer: ${computerScore}`;
   }
 
-  /* console.log(`You have ${humanScore} points`);
-  console.log(`The computer has ${computerScore} points`); */
+
+  if (humanScore === 5 || computerScore === 5) {
+    if (humanScore > computerScore) {
+      resultMessage.textContent = "You won the game!";
+    } else {
+      resultMessage.textContent = "The computer won the game!";
+    }
+  }
 }
