@@ -10,9 +10,16 @@ function getComputerChoice() {
     return "scissors";
   }
 }
+const buttons = document.querySelectorAll("button")
+
+
+buttons.forEach(button => {
+button.addEventListener("click", getHumanChoice)
+
+});
+
 
 function getHumanChoice() {
-  let humanChoice = prompt("Pick rock, paper, or scissors: ").toLowerCase();
   if (humanChoice === "rock") {
     return "rock";
   }
@@ -26,7 +33,6 @@ function getHumanChoice() {
 function playGame() {
   let humanScore = 0;
   let computerScore = 0;
-  let roundsPlayed = prompt("How many rounds do u wanna play?")
   function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
       console.log("You tied!");
@@ -44,11 +50,11 @@ function playGame() {
       computerScore++;
     }
   }
-  for(let i = 0 ; i < roundsPlayed ;i++){
+/*   for(let i = 0 ; i < roundsPlayed ;i++){
   let humanSelection = getHumanChoice();
   let computerSelection = getComputerChoice();
   playRound(humanSelection, computerSelection);
-}
+} */
 console.log(`You have ${humanScore} points`);
 console.log(`The computer has ${computerScore} points`);
 }
