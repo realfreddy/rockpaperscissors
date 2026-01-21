@@ -19,16 +19,9 @@ button.addEventListener("click", getHumanChoice)
 });
 
 
-function getHumanChoice() {
-  if (humanChoice === "rock") {
-    return "rock";
-  }
-  if (humanChoice === "paper") {
-    return "paper";
-  }
-  if (humanChoice === "scissors") {
-    return "scissors";
-  }
+function getHumanChoice(event) {
+  const humanChoice =  event.currentTarget.id;
+  return humanChoice;
 }
 function playGame() {
   let humanScore = 0;
@@ -58,4 +51,3 @@ function playGame() {
 console.log(`You have ${humanScore} points`);
 console.log(`The computer has ${computerScore} points`);
 }
-playGame();
